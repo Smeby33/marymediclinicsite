@@ -53,7 +53,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-muted/30 to-background">
+    <section id="services" className="py-20 bg-gradient-to-b from-primary/10 to-primary/5">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Title & Info */}
@@ -62,13 +62,13 @@ const Services = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Nos Services en Détail
               </h2>
-              <div className="bg-primary/10 rounded-2xl p-6 border border-primary/20">
-                <p className="text-lg text-foreground/80 mb-4 leading-relaxed">
+              <div className="bg-primary rounded-2xl p-8 border-2 border-primary/30 shadow-lg">
+                <p className="text-lg text-primary-foreground mb-4 leading-relaxed font-medium">
                   Médecine Générale, Spécialités, Analyses, Urgences 24h/24
                 </p>
                 <a
                   href="mailto:info@healthclinique.ga"
-                  className="text-primary hover:text-primary-light transition-colors text-lg font-medium"
+                  className="text-primary-foreground/90 hover:text-primary-foreground transition-colors text-lg"
                 >
                   info@healthclinique.ga
                 </a>
