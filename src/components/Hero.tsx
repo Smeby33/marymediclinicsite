@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-medical.jpg";
+import ImageCollage from "@/components/ImageCollage";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -49,6 +50,9 @@ const Hero = () => {
             </Button>
           </div>
         </div>
+
+        {/* Image collage block */}
+        <ImageCollage />
       </div>
 
       {/* Decorative Element */}
