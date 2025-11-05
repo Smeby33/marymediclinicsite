@@ -1,4 +1,6 @@
+import { useInView } from "react-intersection-observer";
 import medicalIcon from "@/assets/medical-icon.jpg";
+import ScrollAnimation from "./ScrollAnimation";
 
 const galleryImages = [
   {
@@ -37,36 +39,40 @@ const galleryImages = [
 
 const Gallery = () => {
   return (
-    <section className="py-20 bg-gradient-to-b from-primary via-primary to-primary-light">
+    <section className="py-20 bg-gradient-to-b from-primary via-primary to-primary-light overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
           {galleryImages.map((image, index) => (
-            <div
+            <ScrollAnimation
               key={index}
-              className="aspect-[4/3] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 animate-scale-in"
-              style={{ animationDelay: `${index * 50}ms` }}
+              animation={index % 2 === 0 ? "fade-up" : "scale"}
+              delay={index * 100}
             >
-              <img
-                src={image.url}
-                alt={image.alt}
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-            </div>
+              <div className="aspect-[4/3] overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            </ScrollAnimation>
           ))}
         </div>
 
         {/* Bottom Icon */}
-        <div className="flex justify-center">
-          <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg">
-            <img
-              src={medicalIcon}
-              alt="Health Clinique"
-              className="w-full h-full object-cover"
-            />
+        <ScrollAnimation animation="zoom" delay={400}>
+          <div className="flex justify-center">
+            <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg hover:scale-110 transition-transform duration-300">
+              <img
+                src={medicalIcon}
+                alt="Health Clinique"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-        </div>
+        </ScrollAnimation>
       </div>
     </section>
   );

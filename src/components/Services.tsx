@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Stethoscope, Heart, FlaskConical, Ambulance, MessageCircle, FileText } from "lucide-react";
+import ScrollAnimation from "./ScrollAnimation";
 
 const services = [
   {
@@ -53,51 +54,57 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-gradient-to-b from-primary/10 to-primary/5">
+    <section id="services" className="py-20 bg-gradient-to-b from-primary/10 to-primary/5 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Title & Info */}
-          <div className="lg:sticky lg:top-24 space-y-8">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Nos Services en Détail
-              </h2>
-              <div className="bg-primary rounded-2xl p-8 border-2 border-primary/30 shadow-lg">
-                <p className="text-lg text-primary-foreground mb-4 leading-relaxed font-medium">
-                  Médecine Générale, Spécialités, Analyses, Urgences 24h/24
-                </p>
-                <a
-                  href="mailto:info@healthclinique.ga"
-                  className="text-primary-foreground/90 hover:text-primary-foreground transition-colors text-lg"
-                >
-                  info@healthclinique.ga
-                </a>
+          <ScrollAnimation animation="fade-right">
+            <div className="lg:sticky lg:top-24 space-y-8">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+                  Nos Services en Détail
+                </h2>
+                <div className="bg-primary rounded-2xl p-8 border-2 border-primary/30 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  <p className="text-lg text-primary-foreground mb-4 leading-relaxed font-medium">
+                    Médecine Générale, Spécialités, Analyses, Urgences 24h/24
+                  </p>
+                  <a
+                    href="mailto:info@healthclinique.ga"
+                    className="text-primary-foreground/90 hover:text-primary-foreground transition-colors text-lg"
+                  >
+                    info@healthclinique.ga
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollAnimation>
 
           {/* Right Column - Services Accordion */}
           <div className="space-y-4">
             <Accordion type="single" collapsible className="space-y-4">
               {services.map((service, index) => (
-                <AccordionItem
+                <ScrollAnimation
                   key={service.id}
-                  value={service.id}
-                  className="border border-border rounded-xl overflow-hidden bg-card animate-fade-in-up"
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  animation="fade-left"
+                  delay={index * 100}
                 >
-                  <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-muted/50 transition-colors">
-                    <div className="flex items-center gap-4 text-left">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                        <service.icon className="w-6 h-6 text-primary" />
+                  <AccordionItem
+                    value={service.id}
+                    className="border border-border rounded-xl overflow-hidden bg-card hover:shadow-lg transition-shadow duration-300"
+                  >
+                    <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-muted/50 transition-colors">
+                      <div className="flex items-center gap-4 text-left">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <service.icon className="w-6 h-6 text-primary" />
+                        </div>
+                        <span className="text-lg font-semibold text-foreground">{service.title}</span>
                       </div>
-                      <span className="text-lg font-semibold text-foreground">{service.title}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4">
-                    <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                  </AccordionContent>
-                </AccordionItem>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 pb-4">
+                      <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </ScrollAnimation>
               ))}
             </Accordion>
           </div>
