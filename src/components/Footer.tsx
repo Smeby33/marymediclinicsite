@@ -3,11 +3,20 @@ import logo from "@/assets/logo-mary-mediclinic.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground text-background py-12">
-      <div className="container mx-auto px-4">
+    <footer className="relative bg-foreground text-background py-12 overflow-hidden">
+      {/* Background Logo */}
+      <div className="absolute inset-0 flex items-center justify-center opacity-5">
+        <img 
+          src={logo} 
+          alt="Mary Mediclinic Background" 
+          className="w-auto h-[80%] object-contain"
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center space-y-6">
           <div className="flex flex-col items-center gap-4">
-            <img src={logo} alt="Mary Mediclinic" className="h-20 w-auto" />
+            <img src={logo} alt="Mary Mediclinic" className="h-24 w-auto drop-shadow-lg" />
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-background/80">

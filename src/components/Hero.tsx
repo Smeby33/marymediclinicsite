@@ -18,17 +18,18 @@ const Hero = () => {
           src={heroImage}
           alt="Mary Mediclinic Port-Gentil"
           className="w-full h-full object-cover object-center"
+          style={{ objectPosition: 'center top' }}
         />
-        <div className="absolute inset-0 bg-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/85 to-primary/75" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20">
         <div className="max-w-3xl animate-fade-in-up">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
             Votre Santé, Notre Priorité Absolue
           </h1>
-          <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/95 mb-8 leading-relaxed drop-shadow-md">
             Des soins modernes et humains à Port-Gentil. Votre bien-être est notre engagement.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -44,7 +45,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               onClick={scrollToContact}
-              className="text-lg px-8 py-6 bg-primary-foreground/10 hover:bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30"
+              className="text-lg px-8 py-6 bg-white/20 hover:bg-white/30 text-white border-white/50 backdrop-blur-sm"
             >
               Nous Contacter
             </Button>
