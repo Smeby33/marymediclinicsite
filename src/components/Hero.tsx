@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-medical.jpg";
+import heroImage from "@/assets/hero-mary-mediclinic.png";
 import ImageCollage from "@/components/ImageCollage";
 
 const Hero = () => {
@@ -16,10 +16,10 @@ const Hero = () => {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Health Clinique Port-Gentil"
-          className="w-full h-full object-cover"
+          alt="Mary Mediclinic Port-Gentil"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
+        <div className="absolute inset-0 bg-background/30" />
       </div>
 
       {/* Content */}

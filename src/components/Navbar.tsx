@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo-mary-mediclinic.png";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,12 +32,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">HC</span>
-            </div>
-            <span className="text-xl font-bold text-foreground">Health Clinique</span>
-          </div>
+          <button 
+            onClick={() => scrollToSection("accueil")}
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+          >
+            <img src={logo} alt="Mary Mediclinic" className="h-12 w-auto" />
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">

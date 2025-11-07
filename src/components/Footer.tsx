@@ -1,4 +1,5 @@
 import { Mail, Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo-mary-mediclinic.png";
 
 const Footer = () => {
   return (
@@ -6,16 +7,13 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="text-center space-y-6">
           <div className="flex flex-col items-center gap-4">
-            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-2xl">HC</span>
-            </div>
-            <span className="text-2xl font-bold">Health Clinique</span>
+            <img src={logo} alt="Mary Mediclinic" className="h-20 w-auto" />
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-background/80">
-            <a href="mailto:contact@healthclinique.com" className="flex items-center gap-2 hover:text-background transition-colors">
+            <a href="mailto:contact@marymediclinic.com" className="flex items-center gap-2 hover:text-background transition-colors">
               <Mail className="w-5 h-5" />
-              contact@healthclinique.com
+              contact@marymediclinic.com
             </a>
             <a href="tel:+24101700000" className="flex items-center gap-2 hover:text-background transition-colors">
               <Phone className="w-5 h-5" />
@@ -30,7 +28,7 @@ const Footer = () => {
 
           <div className="pt-8 border-t border-background/20">
             <p className="text-background/60">
-              © 2024 Health Clinique. Tous droits réservés.
+              © 2024 Mary Mediclinic. Tous droits réservés.
             </p>
           </div>
         </div>
