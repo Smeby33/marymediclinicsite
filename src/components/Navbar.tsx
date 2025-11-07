@@ -34,9 +34,11 @@ const Navbar = () => {
           {/* Logo */}
           <button 
             onClick={() => scrollToSection("accueil")}
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-3 hover:opacity-80 transition-all duration-300 hover:scale-105"
           >
-            <img src={logo} alt="Mary Mediclinic" className="h-12 w-auto" />
+            <div className="w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center p-2">
+              <img src={logo} alt="Mary Mediclinic" className="w-full h-full object-contain" />
+            </div>
           </button>
 
           {/* Desktop Navigation */}

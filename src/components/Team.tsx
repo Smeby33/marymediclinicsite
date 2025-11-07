@@ -22,7 +22,7 @@ const testimonials = [
     role: "Cardiologue",
     image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop",
     quote:
-      "Le Dr. Diallo est un professionnel exceptionnel. Son écoute et son diagnostic précis m'ont beaucoup aidé. Je recommande vivement Health Clinique.",
+      "Le Dr. Diallo est un professionnel exceptionnel. Son écoute et son diagnostic précis m'ont beaucoup aidé. Je recommande vivement Mary Mediclinic.",
   },
   {
     name: "Mme. Dubois",

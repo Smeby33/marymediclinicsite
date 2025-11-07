@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Medical clinic color palette - cyan blues and health greens */
+    /* Mary Mediclinic Brand Colors - Navy Blue & Cyan */
     --background: 0 0% 100%;
-    --foreground: 195 20% 15%;
+    --foreground: 210 50% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 195 20% 15%;
+    --card-foreground: 210 50% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 195 20% 15%;
+    --popover-foreground: 210 50% 12%;
 
-    /* Primary - Medical Cyan/Teal */
-    --primary: 188 85% 35%;
+    /* Primary - Navy Blue (from logo) */
+    --primary: 210 100% 25%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 188 70% 50%;
+    --primary-light: 210 90% 40%;
     
-    /* Secondary - Soft Pink for CTAs */
-    --secondary: 320 40% 85%;
-    --secondary-foreground: 195 50% 20%;
+    /* Secondary - Cyan/Turquoise (from logo) */
+    --secondary: 185 85% 50%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted - Light gray blue */
-    --muted: 195 25% 95%;
-    --muted-foreground: 195 15% 45%;
+    /* Muted - Light blue gray */
+    --muted: 210 30% 96%;
+    --muted-foreground: 210 15% 45%;
 
-    /* Accent - Health Green */
-    --accent: 165 60% 45%;
+    /* Accent - Bright Cyan */
+    --accent: 185 90% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 195 20% 88%;
-    --input: 195 20% 88%;
-    --ring: 188 85% 35%;
+    --border: 210 20% 88%;
+    --input: 210 20% 88%;
+    --ring: 210 100% 25%;
 
     --radius: 0.75rem;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(188 85% 35%), hsl(175 70% 40%));
-    --gradient-hero: linear-gradient(to right, hsl(195 40% 15% / 0.95), hsl(195 40% 20% / 0.85));
-    --gradient-card: linear-gradient(145deg, hsl(195 50% 25%), hsl(188 60% 30%));
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 25%), hsl(185 85% 50%));
+    --gradient-hero: linear-gradient(to right, hsl(210 100% 15% / 0.95), hsl(210 90% 20% / 0.85));
+    --gradient-card: linear-gradient(145deg, hsl(210 90% 30%), hsl(185 70% 40%));
     
     /* Shadows */
-    --shadow-soft: 0 2px 20px hsl(195 40% 15% / 0.08);
-    --shadow-medium: 0 8px 30px hsl(195 40% 15% / 0.12);
-    --shadow-strong: 0 20px 50px hsl(188 85% 35% / 0.15);
+    --shadow-soft: 0 2px 20px hsl(210 50% 15% / 0.08);
+    --shadow-medium: 0 8px 30px hsl(210 50% 15% / 0.12);
+    --shadow-strong: 0 20px 50px hsl(210 100% 25% / 0.15);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -78,34 +78,34 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 195 40% 8%;
+    --background: 210 40% 8%;
     --foreground: 0 0% 95%;
 
-    --card: 195 35% 12%;
+    --card: 210 35% 12%;
     --card-foreground: 0 0% 95%;
 
-    --popover: 195 35% 12%;
+    --popover: 210 35% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 188 80% 50%;
-    --primary-foreground: 195 40% 10%;
-    --primary-light: 188 70% 60%;
+    --primary: 210 90% 55%;
+    --primary-foreground: 210 40% 10%;
+    --primary-light: 210 80% 65%;
 
-    --secondary: 320 40% 75%;
-    --secondary-foreground: 195 40% 10%;
+    --secondary: 185 80% 60%;
+    --secondary-foreground: 210 40% 10%;
 
-    --muted: 195 30% 18%;
-    --muted-foreground: 195 15% 65%;
+    --muted: 210 30% 18%;
+    --muted-foreground: 210 15% 65%;
 
-    --accent: 165 55% 50%;
+    --accent: 185 85% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 195 25% 22%;
-    --input: 195 25% 22%;
-    --ring: 188 80% 50%;
+    --border: 210 25% 22%;
+    --input: 210 25% 22%;
+    --ring: 210 90% 55%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

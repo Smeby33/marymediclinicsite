@@ -67,7 +67,7 @@ const Gallery = () => {
             <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg hover:scale-110 transition-transform duration-300">
               <img
                 src={medicalIcon}
-                alt="Health Clinique"
+                alt="Mary Mediclinic"
                 className="w-full h-full object-cover"
               />
             </div>

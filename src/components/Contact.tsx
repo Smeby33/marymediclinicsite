@@ -122,7 +122,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation Health Clinique Port-Gentil"
+                  title="Localisation Mary Mediclinic Port-Gentil"
                 />
               </div>
             </ScrollAnimation>

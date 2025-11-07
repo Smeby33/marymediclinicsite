@@ -16,7 +16,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center space-y-6">
           <div className="flex flex-col items-center gap-4">
-            <img src={logo} alt="Mary Mediclinic" className="h-24 w-auto drop-shadow-lg" />
+            <div className="w-28 h-28 rounded-full bg-white shadow-xl flex items-center justify-center p-4">
+              <img src={logo} alt="Mary Mediclinic" className="w-full h-full object-contain" />
+            </div>
           </div>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-8 text-background/80">

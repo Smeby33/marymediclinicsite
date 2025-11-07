@@ -5,7 +5,7 @@ const WhatsAppButton = () => {
   const handleWhatsAppClick = () => {
     // Replace with actual WhatsApp number
     const phoneNumber = "24101700000";
-    const message = encodeURIComponent("Bonjour, je souhaite prendre rendez-vous à Health Clinique.");
+    const message = encodeURIComponent("Bonjour, je souhaite prendre rendez-vous à Mary Mediclinic.");
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
   };
 

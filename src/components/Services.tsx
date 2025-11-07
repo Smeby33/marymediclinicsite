@@ -4,51 +4,121 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Stethoscope, Heart, FlaskConical, Ambulance, MessageCircle, FileText } from "lucide-react";
+import { 
+  Stethoscope, 
+  Heart, 
+  FlaskConical, 
+  Ambulance, 
+  Baby, 
+  Eye,
+  Bone,
+  Activity,
+  ScanLine,
+  Scissors,
+  Apple,
+  HeartPulse,
+  Ear,
+  Pill,
+  Briefcase
+} from "lucide-react";
 import ScrollAnimation from "./ScrollAnimation";
 
 const services = [
   {
-    id: "medecine",
+    id: "medecine-generale",
     icon: Stethoscope,
     title: "Médecine Générale",
-    description:
-      "Consultations générales pour toute la famille. Diagnostic, traitement et suivi médical complet avec des médecins expérimentés.",
+    description: "Consultations générales pour toute la famille. Diagnostic, traitement et suivi médical complet avec des médecins expérimentés disponibles tous les jours.",
   },
   {
-    id: "specialites",
+    id: "medecine-travail",
+    icon: Briefcase,
+    title: "Médecine du Travail",
+    description: "Examens médicaux d'aptitude, visites périodiques, bilans de santé professionnels et conseils en santé au travail pour les entreprises.",
+  },
+  {
+    id: "ophtalmologie",
+    icon: Eye,
+    title: "Ophtalmologie",
+    description: "Consultations ophtalmologiques complètes, examens de la vue, prescription de lunettes et dépistage des pathologies oculaires.",
+  },
+  {
+    id: "pediatrie",
+    icon: Baby,
+    title: "Pédiatrie",
+    description: "Soins spécialisés pour les enfants de la naissance à l'adolescence. Suivi de croissance, vaccinations et traitement des maladies infantiles.",
+  },
+  {
+    id: "gynecologie",
     icon: Heart,
-    title: "Spécialités Médicales",
-    description:
-      "Cardiologie, dermatologie, gynécologie, pédiatrie et plus. Nos spécialistes vous offrent des soins experts dans 15 domaines médicaux.",
+    title: "Gynécologie",
+    description: "Consultations gynécologiques, suivi de grossesse, échographies et soins de santé reproductive pour les femmes de tous âges.",
   },
   {
-    id: "analyses",
+    id: "traumatologie",
+    icon: Bone,
+    title: "Traumatologie",
+    description: "Prise en charge des fractures, entorses, luxations et tous types de traumatismes. Traitement orthopédique et suivi de rééducation.",
+  },
+  {
+    id: "cardiologie",
+    icon: HeartPulse,
+    title: "Cardiologie",
+    description: "Diagnostic et traitement des maladies cardiovasculaires. Electrocardiogrammes, échographies cardiaques et suivi des pathologies cardiaques.",
+  },
+  {
+    id: "radiologie",
+    icon: ScanLine,
+    title: "Radiologie",
+    description: "Service d'imagerie médicale moderne avec radiographie numérique, échographie et autres examens d'imagerie diagnostique.",
+  },
+  {
+    id: "laboratoire",
     icon: FlaskConical,
-    title: "Analyses de Laboratoire",
-    description:
-      "Laboratoire moderne équipé pour tous types d'analyses. Résultats rapides et fiables avec plus de 500 analyses par semaine.",
+    title: "Laboratoire d'Analyses Médicales",
+    description: "Analyses biologiques complètes. Hématologie, biochimie, bactériologie et sérologie avec résultats rapides et fiables.",
+  },
+  {
+    id: "chirurgie",
+    icon: Scissors,
+    title: "Chirurgie",
+    description: "Interventions chirurgicales diverses avec un bloc opératoire équipé et une équipe chirurgicale expérimentée.",
+  },
+  {
+    id: "hepato-gastro",
+    icon: Activity,
+    title: "Hépato-Gastro-Entérologie",
+    description: "Diagnostic et traitement des maladies du foie, de l'estomac, des intestins et du système digestif. Endoscopies et consultations spécialisées.",
   },
   {
     id: "urgences",
     icon: Ambulance,
     title: "Urgences 24h/24",
-    description:
-      "Service d'urgence disponible 24h/24 et 7j/7. Notre équipe médicale est toujours prête à vous accueillir en cas d'urgence.",
+    description: "Service d'urgence disponible jour et nuit, 7 jours sur 7. Notre équipe médicale est toujours prête à vous accueillir.",
   },
   {
-    id: "whatsapp",
-    icon: MessageCircle,
-    title: "Consultation WhatsApp",
-    description:
-      "Contactez-nous directement via WhatsApp pour des questions rapides, prendre rendez-vous ou obtenir des conseils médicaux.",
+    id: "nutrition",
+    icon: Apple,
+    title: "Nutrition & Bien-Être",
+    description: "Consultations nutritionnelles personnalisées, programmes de rééquilibrage alimentaire et conseils en hygiène de vie.",
   },
   {
-    id: "formulaire",
-    icon: FileText,
-    title: "Formulaire Rapide",
-    description:
-      "Remplissez notre formulaire en ligne pour une prise de contact rapide. Nous vous répondons dans les plus brefs délais.",
+    id: "kinesitherapie",
+    icon: Activity,
+    title: "Kinésithérapie",
+    description: "Rééducation fonctionnelle, massages thérapeutiques et soins de kinésithérapie pour la récupération et le bien-être physique.",
+  },
+  {
+    id: "orl",
+    icon: Ear,
+    title: "ORL",
+    description: "Oto-Rhino-Laryngologie. Traitement des pathologies des oreilles, du nez, de la gorge et de la sphère ORL.",
+  },
+  {
+    id: "dermatologie-infectiologie",
+    icon: Pill,
+    title: "Dermatologie-Infectiologie",
+    description: "Soins dermatologiques et traitement des maladies infectieuses. Diagnostic et prise en charge des pathologies de la peau et infections.",
   },
 ];
 
@@ -62,17 +132,17 @@ const Services = () => {
             <div className="lg:sticky lg:top-24 space-y-8">
               <div>
                 <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                  Nos Services en Détail
+                  Nos Services Médicaux
                 </h2>
                 <div className="bg-primary rounded-2xl p-8 border-2 border-primary/30 shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <p className="text-lg text-primary-foreground mb-4 leading-relaxed font-medium">
-                    Médecine Générale, Spécialités, Analyses, Urgences 24h/24
+                    16 services médicaux à votre disposition pour prendre soin de votre santé et celle de votre famille.
                   </p>
                   <a
-                    href="mailto:info@healthclinique.ga"
+                    href="mailto:contact@marymediclinic.com"
                     className="text-primary-foreground/90 hover:text-primary-foreground transition-colors text-lg"
                   >
-                    info@healthclinique.ga
+                    contact@marymediclinic.com
                   </a>
                 </div>
               </div>
