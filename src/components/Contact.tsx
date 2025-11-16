@@ -109,9 +109,13 @@ const Contact = () => {
             <div className="bg-primary-foreground rounded-2xl p-8 shadow-xl">
               <h3 className="text-3xl font-bold text-foreground mb-6">Contactez-Nous Facilement</h3>
               {state.succeeded ? (
-                <div className="bg-secondary/10 border border-secondary p-8 rounded-lg text-center">
-                  <div className="text-5xl mb-4">✅</div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">Message envoyé avec succès !</h3>
+                <div className="bg-secondary/10 border-2 border-secondary p-8 rounded-xl text-center space-y-4">
+                  <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto">
+                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold text-foreground">Message envoyé avec succès !</h3>
                   <p className="text-muted-foreground">Nous vous répondrons dans les plus brefs délais.</p>
                 </div>
               ) : (
@@ -124,8 +128,8 @@ const Contact = () => {
                       <Input
                         id="firstName"
                         name="firstName"
-                        placeholder="Prénom"
-                        className="bg-muted border-border"
+                        placeholder="Votre prénom"
+                        className="bg-background border-2 border-input focus:border-primary"
                         required
                       />
                       <ValidationError 
@@ -142,8 +146,8 @@ const Contact = () => {
                       <Input
                         id="lastName"
                         name="lastName"
-                        placeholder="Nom"
-                        className="bg-muted border-border"
+                        placeholder="Votre nom"
+                        className="bg-background border-2 border-input focus:border-primary"
                         required
                       />
                       <ValidationError 
@@ -163,8 +167,8 @@ const Contact = () => {
                       id="email"
                       name="email"
                       type="email"
-                      placeholder="Email"
-                      className="bg-muted border-border"
+                      placeholder="votre.email@exemple.com"
+                      className="bg-background border-2 border-input focus:border-primary"
                       required
                     />
                     <ValidationError 
@@ -184,7 +188,7 @@ const Contact = () => {
                       name="phone"
                       type="tel"
                       placeholder="+241 XX XX XX XX"
-                      className="bg-muted border-border"
+                      className="bg-background border-2 border-input focus:border-primary"
                       required
                     />
                     <ValidationError 
@@ -202,7 +206,7 @@ const Contact = () => {
                     <select
                       id="service"
                       name="service"
-                      className="flex h-10 w-full rounded-md border border-border bg-muted px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md border-2 border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       required
                     >
                       <option value="">Sélectionnez un service</option>
@@ -240,7 +244,7 @@ const Contact = () => {
                         id="date"
                         name="date"
                         type="date"
-                        className="bg-muted border-border"
+                        className="bg-background border-2 border-input focus:border-primary"
                       />
                     </div>
                     <div className="space-y-2">
@@ -251,7 +255,7 @@ const Contact = () => {
                         id="time"
                         name="time"
                         type="time"
-                        className="bg-muted border-border"
+                        className="bg-background border-2 border-input focus:border-primary"
                       />
                     </div>
                   </div>
@@ -264,7 +268,7 @@ const Contact = () => {
                       id="message"
                       name="message"
                       placeholder="Décrivez brièvement votre motif de consultation..."
-                      className="bg-muted border-border min-h-32"
+                      className="bg-background border-2 border-input focus:border-primary min-h-32"
                       required
                     />
                     <ValidationError 
