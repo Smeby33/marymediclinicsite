@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -6,45 +5,21 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import ScrollAnimation from "./ScrollAnimation";
+import { useForm, ValidationError } from "@formspree/react";
 
 const Contact = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    clinic: "",
-    message: "",
-  });
+  const [state, handleSubmit] = useForm("mvgddbpp");
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Basic validation
-    if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+  // Show success message when form is submitted
+  if (state.succeeded) {
+    setTimeout(() => {
       toast({
-        title: "Erreur",
-        description: "Veuillez remplir tous les champs obligatoires.",
-        variant: "destructive",
+        title: "Message envoyé !",
+        description: "Nous vous répondrons dans les plus brefs délais.",
       });
-      return;
-    }
-
-    // In a real app, you would send this to a backend
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
-    });
-
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      clinic: "",
-      message: "",
-    });
-  };
+    }, 100);
+  }
 
   return (
     <section id="contact" className="py-20 bg-primary text-primary-foreground overflow-hidden">
@@ -132,83 +107,116 @@ const Contact = () => {
           <ScrollAnimation animation="fade-left" delay={200}>
             <div className="bg-primary-foreground rounded-2xl p-8 shadow-xl">
               <h3 className="text-3xl font-bold text-foreground mb-6">Contactez-Nous Facilement</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
+              {state.succeeded ? (
+                <div className="bg-secondary/10 border border-secondary p-8 rounded-lg text-center">
+                  <div className="text-5xl mb-4">✅</div>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">Message envoyé avec succès !</h3>
+                  <p className="text-muted-foreground">Nous vous répondrons dans les plus brefs délais.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName" className="text-foreground">
+                        Prénom *
+                      </Label>
+                      <Input
+                        id="firstName"
+                        name="firstName"
+                        placeholder="Prénom"
+                        className="bg-muted border-border"
+                        required
+                      />
+                      <ValidationError 
+                        prefix="Prénom" 
+                        field="firstName"
+                        errors={state.errors}
+                        className="text-destructive text-sm"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName" className="text-foreground">
+                        Nom *
+                      </Label>
+                      <Input
+                        id="lastName"
+                        name="lastName"
+                        placeholder="Nom"
+                        className="bg-muted border-border"
+                        required
+                      />
+                      <ValidationError 
+                        prefix="Nom" 
+                        field="lastName"
+                        errors={state.errors}
+                        className="text-destructive text-sm"
+                      />
+                    </div>
+                  </div>
+
                   <div className="space-y-2">
-                    <Label htmlFor="firstName" className="text-foreground">
-                      Prénom *
+                    <Label htmlFor="email" className="text-foreground">
+                      Email *
                     </Label>
                     <Input
-                      id="firstName"
-                      placeholder="Prénom"
-                      value={formData.firstName}
-                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="Email"
                       className="bg-muted border-border"
                       required
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName" className="text-foreground">
-                      Nom *
-                    </Label>
-                    <Input
-                      id="lastName"
-                      placeholder="Nom"
-                      value={formData.lastName}
-                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      className="bg-muted border-border"
-                      required
+                    <ValidationError 
+                      prefix="Email" 
+                      field="email"
+                      errors={state.errors}
+                      className="text-destructive text-sm"
                     />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-foreground">
-                    Email *
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="bg-muted border-border"
-                    required
-                  />
-                </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="clinic" className="text-foreground">
+                      Service souhaité
+                    </Label>
+                    <Input
+                      id="clinic"
+                      name="clinic"
+                      placeholder="Service (optionnel)"
+                      className="bg-muted border-border"
+                    />
+                  </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="clinic" className="text-foreground">
-                    Clinique
-                  </Label>
-                  <Input
-                    id="clinic"
-                    placeholder="Clinique (optionnel)"
-                    value={formData.clinic}
-                    onChange={(e) => setFormData({ ...formData, clinic: e.target.value })}
-                    className="bg-muted border-border"
-                  />
-                </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-foreground">
+                      Message *
+                    </Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Votre message ou raison de la prise de rendez-vous..."
+                      className="bg-muted border-border min-h-32"
+                      required
+                    />
+                    <ValidationError 
+                      prefix="Message" 
+                      field="message"
+                      errors={state.errors}
+                      className="text-destructive text-sm"
+                    />
+                  </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground">
-                    Message *
-                  </Label>
-                  <Textarea
-                    id="message"
-                    placeholder="Votre message..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="bg-muted border-border min-h-32"
-                    required
-                  />
-                </div>
-
-                <Button type="submit" variant="secondary" size="lg" className="w-full hover:scale-105 transition-transform">
-                  <Send className="w-5 h-5 mr-2" />
-                  Envoyer
-                </Button>
-              </form>
+                  <Button 
+                    type="submit" 
+                    variant="secondary" 
+                    size="lg" 
+                    className="w-full hover:scale-105 transition-transform"
+                    disabled={state.submitting}
+                  >
+                    <Send className="w-5 h-5 mr-2" />
+                    {state.submitting ? "Envoi en cours..." : "Envoyer"}
+                  </Button>
+                </form>
+              )}
             </div>
           </ScrollAnimation>
         </div>
