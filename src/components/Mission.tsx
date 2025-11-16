@@ -1,24 +1,24 @@
 import { Card } from "@/components/ui/card";
-import clinicSign from "@/assets/clinic-sign.jpg";
-import pharmacist from "@/assets/pharmacist-work.jpg";
-import anatomyModel from "@/assets/anatomy-model.jpg";
+import missionImage from "@/assets/mission-healthcare.jpg";
+import valuesImage from "@/assets/values-healthcare.jpg";
+import contactImage from "@/assets/contact-healthcare.jpg";
 import ScrollAnimation from "./ScrollAnimation";
 
 const engagementCards = [
   {
     title: "Mission",
     description: "Offrir des soins de santé de haute qualité avec compassion.",
-    image: clinicSign,
+    image: missionImage,
   },
   {
     title: "Valeurs",
     description: "Intégrité, professionnalisme et respect.",
-    image: pharmacist,
+    image: valuesImage,
   },
   {
     title: "Contact",
     description: "Adresse, téléphone, email et carte interactive.",
-    image: anatomyModel,
+    image: contactImage,
   },
 ];
 

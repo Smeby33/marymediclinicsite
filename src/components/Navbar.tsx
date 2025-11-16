@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo-mary-mediclinic.png";
+import ContactDialog from "./ContactDialog";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,9 +68,7 @@ const Navbar = () => {
             >
               Contact
             </button>
-            <Button variant="secondary" onClick={() => scrollToSection("contact")}>
-              Prendre RDV
-            </Button>
+            <ContactDialog />
           </div>
 
           {/* Mobile Menu Button */}
@@ -109,9 +108,11 @@ const Navbar = () => {
               >
                 Contact
               </button>
-              <Button variant="secondary" onClick={() => scrollToSection("contact")} className="w-full">
-                Prendre RDV
-              </Button>
+              <ContactDialog trigger={
+                <Button variant="secondary" className="w-full">
+                  Prendre RDV
+                </Button>
+              } />
             </div>
           </div>
         )}
