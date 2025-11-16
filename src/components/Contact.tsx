@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import ScrollAnimation from "./ScrollAnimation";
@@ -175,25 +176,94 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="clinic" className="text-foreground">
-                      Service souhaité
+                    <Label htmlFor="phone" className="text-foreground">
+                      Téléphone *
                     </Label>
                     <Input
-                      id="clinic"
-                      name="clinic"
-                      placeholder="Service (optionnel)"
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="+241 XX XX XX XX"
                       className="bg-muted border-border"
+                      required
+                    />
+                    <ValidationError 
+                      prefix="Téléphone" 
+                      field="phone"
+                      errors={state.errors}
+                      className="text-destructive text-sm"
                     />
                   </div>
 
                   <div className="space-y-2">
+                    <Label htmlFor="service" className="text-foreground">
+                      Service médical *
+                    </Label>
+                    <select
+                      id="service"
+                      name="service"
+                      className="flex h-10 w-full rounded-md border border-border bg-muted px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      required
+                    >
+                      <option value="">Sélectionnez un service</option>
+                      <option value="Médecine générale">Médecine générale</option>
+                      <option value="Médecine du travail">Médecine du travail</option>
+                      <option value="Ophtalmologie">Ophtalmologie</option>
+                      <option value="Pédiatrie">Pédiatrie</option>
+                      <option value="Gynécologie">Gynécologie</option>
+                      <option value="Traumatologie">Traumatologie</option>
+                      <option value="Cardiologie">Cardiologie</option>
+                      <option value="Radiologie">Radiologie</option>
+                      <option value="Laboratoire d'analyses">Laboratoire d'analyses médicales</option>
+                      <option value="Chirurgie">Chirurgie</option>
+                      <option value="Hépato-gastro-entérologie">Hépato-gastro-entérologie</option>
+                      <option value="Urgences">Urgences 24h/24</option>
+                      <option value="Nutrition & bien-être">Nutrition & bien-être</option>
+                      <option value="Kinésithérapie">Kinésithérapie</option>
+                      <option value="ORL">ORL</option>
+                      <option value="Dermatologie-infectiologie">Dermatologie-infectiologie</option>
+                    </select>
+                    <ValidationError 
+                      prefix="Service" 
+                      field="service"
+                      errors={state.errors}
+                      className="text-destructive text-sm"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="date" className="text-foreground">
+                        Date souhaitée
+                      </Label>
+                      <Input
+                        id="date"
+                        name="date"
+                        type="date"
+                        className="bg-muted border-border"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="time" className="text-foreground">
+                        Heure souhaitée
+                      </Label>
+                      <Input
+                        id="time"
+                        name="time"
+                        type="time"
+                        className="bg-muted border-border"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
                     <Label htmlFor="message" className="text-foreground">
-                      Message *
+                      Motif de consultation *
                     </Label>
                     <Textarea
                       id="message"
                       name="message"
-                      placeholder="Votre message ou raison de la prise de rendez-vous..."
+                      placeholder="Décrivez brièvement votre motif de consultation..."
                       className="bg-muted border-border min-h-32"
                       required
                     />
