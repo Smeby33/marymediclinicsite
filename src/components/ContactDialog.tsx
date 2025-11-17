@@ -49,7 +49,7 @@ const ContactDialog = ({ trigger }: ContactDialogProps) => {
         </DialogHeader>
 
         {state.succeeded ? (
-          <div className="bg-secondary/10 border-2 border-secondary p-8 rounded-xl text-center space-y-4">
+          <div className="bg-secondary/10 border-2 border-secondary p-8 rounded-xl text-center space-y-4 animate-in fade-in-80 zoom-in-95 duration-300">
             <CheckCircle2 className="w-16 h-16 text-secondary mx-auto" />
             <h3 className="text-2xl font-bold text-foreground">Message envoyé avec succès !</h3>
             <p className="text-muted-foreground">Nous vous répondrons dans les plus brefs délais.</p>
@@ -132,7 +132,7 @@ const ContactDialog = ({ trigger }: ContactDialogProps) => {
               <select
                 id="service"
                 name="service"
-                className="flex h-10 w-full rounded-md border-2 border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 w-full rounded-md border-2 border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 required
               >
                 <option value="">Sélectionnez un service</option>

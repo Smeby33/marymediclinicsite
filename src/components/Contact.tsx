@@ -109,7 +109,7 @@ const Contact = () => {
             <div className="bg-primary-foreground rounded-2xl p-8 shadow-xl">
               <h3 className="text-3xl font-bold text-foreground mb-6">Contactez-Nous Facilement</h3>
               {state.succeeded ? (
-                <div className="bg-secondary/10 border-2 border-secondary p-8 rounded-xl text-center space-y-4">
+                <div className="bg-secondary/10 border-2 border-secondary p-8 rounded-xl text-center space-y-4 animate-in fade-in-80 slide-in-from-bottom-2 duration-300">
                   <div className="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto">
                     <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -206,7 +206,7 @@ const Contact = () => {
                     <select
                       id="service"
                       name="service"
-                      className="flex h-10 w-full rounded-md border-2 border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex h-10 w-full rounded-md border-2 border-input bg-background px-3 py-2 text-sm text-foreground ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       required
                     >
                       <option value="">Sélectionnez un service</option>
