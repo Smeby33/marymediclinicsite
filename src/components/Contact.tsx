@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { useEffect } from "react";
 import ScrollAnimation from "./ScrollAnimation";
 import { useForm, ValidationError } from "@formspree/react";
 
@@ -13,14 +14,16 @@ const Contact = () => {
   const [state, handleSubmit] = useForm("xzdpobvk");
 
   // Show success message when form is submitted
-  if (state.succeeded) {
-    setTimeout(() => {
+  useEffect(() => {
+    if (!state.succeeded) return;
+    const t = setTimeout(() => {
       toast({
         title: "Message envoyé !",
         description: "Nous vous répondrons dans les plus brefs délais.",
       });
     }, 100);
-  }
+    return () => clearTimeout(t);
+  }, [state.succeeded, toast]);
 
   return (
     <section id="contact" className="py-20 bg-primary text-primary-foreground overflow-hidden">
@@ -46,10 +49,10 @@ const Contact = () => {
                   <div>
                     <div className="font-semibold text-lg mb-1">Email</div>
                     <a
-                      href="mailto:contact@healthclinique.com"
+                      href="mailto:réception@mary-mediclinic.com"
                       className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                     >
-                      contact@healthclinique.com
+                      réception@mary-mediclinic.com
                     </a>
                   </div>
                 </div>
@@ -63,10 +66,16 @@ const Contact = () => {
                   <div>
                     <div className="font-semibold text-lg mb-1">Téléphone</div>
                     <a
-                      href="tel:+24101700000"
+                      href="tel:+241 11535246"
                       className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                     >
-                      +241 01 70 00 00
+                      +241 11 53 52 46
+                    </a>/
+                    <a
+                      href="tel:+241 60027611"
+                      className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+                    >
+                      +241 60 02 76 11
                     </a>
                   </div>
                 </div>
@@ -80,7 +89,7 @@ const Contact = () => {
                   <div>
                     <div className="font-semibold text-lg mb-1">Adresse</div>
                     <p className="text-primary-foreground/80">
-                      123 Avenue de la Santé, Port-Gentil, Gabon
+                      Entrée principale, Rue Sandrine , Port-Gentil, Gabon
                     </p>
                   </div>
                 </div>
@@ -91,7 +100,7 @@ const Contact = () => {
             <ScrollAnimation animation="scale" delay={400}>
               <div className="rounded-2xl overflow-hidden border-4 border-primary-foreground/20 h-64">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15933.912376851897!2d8.76667!3d-0.71933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1073515d4e3d1111%3A0x1234567890abcdef!2sPort-Gentil%2C%20Gabon!5e0!3m2!1sfr!2s!4v1234567890123!5m2!1sfr!2s"
+                  src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1374.0816991572453!2d8.774666061014795!3d-0.7111384525565865!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sfr!2sga!4v1767966313368!5m2!1sfr!2sga"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

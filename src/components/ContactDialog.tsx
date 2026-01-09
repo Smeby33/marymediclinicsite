@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,15 +18,17 @@ const ContactDialog = ({ trigger }: ContactDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Show success message and close dialog when form is submitted
-  if (state.succeeded) {
-    setTimeout(() => {
+  useEffect(() => {
+    if (!state.succeeded) return;
+    const t = setTimeout(() => {
       toast({
         title: "Message envoyé avec succès !",
         description: "Nous vous répondrons dans les plus brefs délais.",
       });
       setIsOpen(false);
     }, 100);
-  }
+    return () => clearTimeout(t);
+  }, [state.succeeded, toast]);
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
