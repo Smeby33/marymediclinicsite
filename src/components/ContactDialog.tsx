@@ -14,7 +14,7 @@ interface ContactDialogProps {
 
 const ContactDialog = ({ trigger }: ContactDialogProps) => {
   const { toast } = useToast();
-  const [state, handleSubmit] = useForm("mvgddbpp");
+  const [state, handleSubmit] = useForm("xzdpobvk");
   const [isOpen, setIsOpen] = useState(false);
 
   // Show success message and close dialog when form is submitted
